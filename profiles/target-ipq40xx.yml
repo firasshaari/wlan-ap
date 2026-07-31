@@ -2,8 +2,8 @@
 description: Add the wifi ath10k support (stock mainline ath10k variant)
 feeds:
   - name: target_ipq40xx
-    uri: https://github.com/Telecominfraproject/wlan-ap-legacy-targets.git
-    branch: main
+    uri: https://github.com/firasshaari/wlan-ap-legacy-targets.git
+    branch: v4.2-spw2ac1200
 packages:
   - kmod-ath10k
   - ath10k-firmware-qca4019
