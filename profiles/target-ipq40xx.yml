@@ -1,14 +1,18 @@
 ---
-description: Add the wifi ath10k support
+description: Add the wifi ath10k support (stock mainline ath10k variant)
 feeds:
   - name: target_ipq40xx
     uri: https://github.com/Telecominfraproject/wlan-ap-legacy-targets.git
     branch: main
 packages:
-  - ath10k-firmware-qca4019-ct-htt
-  - ath10k-firmware-qca9888-ct-htt
-  - ath10k-firmware-qca9984-ct-htt
+  - kmod-ath10k
+  - ath10k-firmware-qca4019
+  - ath10k-board-qca4019
 diffconfig: |
+  # CONFIG_PACKAGE_kmod-ath10k-ct is not set
   # CONFIG_PACKAGE_ath10k-firmware-qca4019-ct is not set
+  # CONFIG_PACKAGE_ath10k-firmware-qca4019-ct-htt is not set
   # CONFIG_PACKAGE_ath10k-firmware-qca9888-ct is not set
+  # CONFIG_PACKAGE_ath10k-firmware-qca9888-ct-htt is not set
   # CONFIG_PACKAGE_ath10k-firmware-qca9984-ct is not set
+  # CONFIG_PACKAGE_ath10k-firmware-qca9984-ct-htt is not set

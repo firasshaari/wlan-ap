@@ -1,0 +1,17 @@
+From: Firas Shaari <firas.shaari@shaariconsultancy.com>
+Subject: [PATCH] radio.uc: render mu_beamformer=0 into wifi-device
+
+MU-MIMO beamforming causes downlink MCS thrashing on QCA4019
+(SPW2AC1200). The schema has no beamforming property, so emit the
+uci option directly until a proper schema knob exists.
+
+--- a/renderer/templates/radio.uc
++++ b/renderer/templates/radio.uc
+@@ -220,6 +220,7 @@ set wireless.{{ phy.section }}.htmode={{ htmode }}
+ set wireless.{{ phy.section }}.txantenna={{ match_mimo(phy.tx_ant_avail, radio.mimo) }}
+ set wireless.{{ phy.section }}.rxantenna={{ match_mimo(phy.rx_ant_avail, radio.mimo) }}
+ set wireless.{{ phy.section }}.noscan=1
++set wireless.{{ phy.section }}.mu_beamformer=0
+ {%  endif %}
+ set wireless.{{ phy.section }}.channel={{ match_channel(phy, radio) }}
+ set wireless.{{ phy.section }}.beacon_int={{ radio.beacon_interval }}
